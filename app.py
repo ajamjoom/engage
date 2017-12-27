@@ -299,7 +299,7 @@ def received_postback(event):
         # Get Started button was pressed
         send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID].")
         # Engage quickreply
-        send_quickreply_message(sender_id, "Engage")
+        send_quickreply_message(sender_id, ["Engage"])
     else:
         # Notify sender that postback was successful
         send_text_message(sender_id, "Postback called")
