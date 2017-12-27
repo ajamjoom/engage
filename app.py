@@ -78,8 +78,8 @@ def received_message(event):
         elif message_text == 'button':
             send_button_message(sender_id)
 
-        elif message_text == 'generic':
-            send_generic_message(sender_id)
+        # elif message_text == 'generic':
+        #     send_generic_message(sender_id)
 
         elif message_text == 'share':
             send_share_message(sender_id)
@@ -106,56 +106,6 @@ def send_text_message(recipient_id, message_text):
             "text": message_text
         }
     })
-
-    call_send_api(message_data)
-
-
-def send_generic_message(recipient_id):
-
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "rift",
-                        "subtitle": "Next-generation virtual reality",
-                        "item_url": "https://www.oculus.com/en-us/rift/",               
-                        "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-                        "buttons": [{
-                            "type": "web_url",
-                            "url": "https://www.oculus.com/en-us/rift/",
-                            "title": "Open Web URL"
-                        }, {
-                            "type": "postback",
-                            "title": "Call Postback",
-                            "payload": "Payload for first bubble",
-                        }],
-                    }, {
-                        "title": "touch",
-                        "subtitle": "Your Hands, Now in VR",
-                        "item_url": "https://www.oculus.com/en-us/touch/",               
-                        "image_url": "http://messengerdemo.parseapp.com/img/touch.png",
-                        "buttons": [{
-                            "type": "web_url",
-                            "url": "https://www.oculus.com/en-us/touch/",
-                            "title": "Open Web URL"
-                        }, {
-                            "type": "postback",
-                            "title": "Call Postback",
-                            "payload": "Payload for second bubble",
-                        }]
-                    }]
-                }
-            }
-        }
-    })
-
-    log("sending template with choices to {recipient}: ".format(recipient=recipient_id))
 
     call_send_api(message_data)
     
@@ -277,6 +227,27 @@ def send_button_message(recipient_id):
 
     call_send_api(message_data)
 
+def send_quickreply_message(recipient_id, quick_replies):
+
+    # List of objects {content_type, title, pyaload}
+    quick_reply_list = []
+    
+    for title_payload in quick_replies:
+        quick_reply_list.append({'content_type':"text", 'title':title_payload, 'payload':title_payload})
+
+    message_data = json.dumps({
+            "recipient": {
+                "id": recipient_id
+            },
+            "message": {
+                "quick_replies": quick_reply_list
+            }
+        })
+
+    log("sending quickreply message to {recipient}: ".format(recipient=recipient_id))
+
+    call_send_api(message_data)
+
 
 def send_share_message(recipient_id):
 
@@ -327,6 +298,8 @@ def received_postback(event):
     if payload == 'Get Started':
         # Get Started button was pressed
         send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID].")
+        # Engage quickreply
+        send_quickreply_message(sender_id, "Engage")
     else:
         # Notify sender that postback was successful
         send_text_message(sender_id, "Postback called")
