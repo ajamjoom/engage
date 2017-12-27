@@ -9,7 +9,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "greeting":{
     "text":"Hi {{user_first_name}}, welcome to this bot."
   }
-}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$EAAdIkAG76KIBAPR8JCfVT0GyZBQQ41lYhBGLQtA9bqYBuC6wldmfZBLyCUWadZC15TaHuulZAtf7iZCcuc34y9aTrSZAn7PpvClKxKmvkGFrMqVDrkYjdSQBd4Ngj84LSlULaT8nM2FJBoYH8N4hlJ1sxgGzG2UJLapvMtNzKdZCgZDZD"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAdIkAG76KIBAPR8JCfVT0GyZBQQ41lYhBGLQtA9bqYBuC6wldmfZBLyCUWadZC15TaHuulZAtf7iZCcuc34y9aTrSZAn7PpvClKxKmvkGFrMqVDrkYjdSQBd4Ngj84LSlULaT8nM2FJBoYH8N4hlJ1sxgGzG2UJLapvMtNzKdZCgZDZD"
 
 # Get Started button
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -20,4 +20,4 @@ curl -X POST -H "Content-Type: application/json" -d '{
       "payload":"Get Started"
     }
   ]
-}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=$EAAdIkAG76KIBAPR8JCfVT0GyZBQQ41lYhBGLQtA9bqYBuC6wldmfZBLyCUWadZC15TaHuulZAtf7iZCcuc34y9aTrSZAn7PpvClKxKmvkGFrMqVDrkYjdSQBd4Ngj84LSlULaT8nM2FJBoYH8N4hlJ1sxgGzG2UJLapvMtNzKdZCgZDZD"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAdIkAG76KIBAPR8JCfVT0GyZBQQ41lYhBGLQtA9bqYBuC6wldmfZBLyCUWadZC15TaHuulZAtf7iZCcuc34y9aTrSZAn7PpvClKxKmvkGFrMqVDrkYjdSQBd4Ngj84LSlULaT8nM2FJBoYH8N4hlJ1sxgGzG2UJLapvMtNzKdZCgZDZD"
