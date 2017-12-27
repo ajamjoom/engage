@@ -110,122 +110,122 @@ def send_text_message(recipient_id, message_text):
     call_send_api(message_data)
     
 
-def send_image_message(recipient_id):
+# def send_image_message(recipient_id):
 
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"image",
-                "payload":{
-                    "url":"http://i.imgur.com/76rJlO9.jpg"
-                }
-            }
-        }
-    })
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"image",
+#                 "payload":{
+#                     "url":"http://i.imgur.com/76rJlO9.jpg"
+#                 }
+#             }
+#         }
+#     })
 
-    log("sending image to {recipient}: ".format(recipient=recipient_id))
+#     log("sending image to {recipient}: ".format(recipient=recipient_id))
 
-    call_send_api(message_data)
-
-
-def send_file_message(recipient_id):
-
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"file",
-                "payload":{
-                    "url":"http://ee.usc.edu/~redekopp/ee355/EE355_Syllabus.pdf"
-                }
-            }
-        }
-    })
-
-    log("sending file to {recipient}: ".format(recipient=recipient_id))
-
-    call_send_api(message_data)
+#     call_send_api(message_data)
 
 
-def send_audio_message(recipient_id):
+# def send_file_message(recipient_id):
 
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"audio",
-                "payload":{
-                    "url":"http://www.stephaniequinn.com/Music/Allegro%20from%20Duet%20in%20C%20Major.mp3"
-                }
-            }
-        }
-    })
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"file",
+#                 "payload":{
+#                     "url":"http://ee.usc.edu/~redekopp/ee355/EE355_Syllabus.pdf"
+#                 }
+#             }
+#         }
+#     })
 
-    log("sending audio to {recipient}: ".format(recipient=recipient_id))
+#     log("sending file to {recipient}: ".format(recipient=recipient_id))
 
-    call_send_api(message_data)
-
-
-def send_video_message(recipient_id):
-
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"video",
-                "payload":{
-                    "url":"http://techslides.com/demos/sample-videos/small.mp4"
-                }
-            }
-        }
-    })
-
-    log("sending video to {recipient}: ".format(recipient=recipient_id))
-
-    call_send_api(message_data)
+#     call_send_api(message_data)
 
 
-def send_button_message(recipient_id):
+# def send_audio_message(recipient_id):
 
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"template",
-                "payload":{
-                    "template_type":"button",
-                    "text":"What do you want to do next?",
-                    "buttons":[
-                    {
-                        "type":"web_url",
-                        "url":"https://www.google.com",
-                        "title":"Google"
-                    },
-                    {
-                        "type":"postback",
-                        "title":"Call Postback",
-                        "payload":"Payload for send_button_message()"
-                    }
-                    ]
-                }
-            }
-        }
-    })
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"audio",
+#                 "payload":{
+#                     "url":"http://www.stephaniequinn.com/Music/Allegro%20from%20Duet%20in%20C%20Major.mp3"
+#                 }
+#             }
+#         }
+#     })
 
-    log("sending button to {recipient}: ".format(recipient=recipient_id))
+#     log("sending audio to {recipient}: ".format(recipient=recipient_id))
 
-    call_send_api(message_data)
+#     call_send_api(message_data)
+
+
+# def send_video_message(recipient_id):
+
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"video",
+#                 "payload":{
+#                     "url":"http://techslides.com/demos/sample-videos/small.mp4"
+#                 }
+#             }
+#         }
+#     })
+
+#     log("sending video to {recipient}: ".format(recipient=recipient_id))
+
+#     call_send_api(message_data)
+
+
+# def send_button_message(recipient_id):
+
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"template",
+#                 "payload":{
+#                     "template_type":"button",
+#                     "text":"What do you want to do next?",
+#                     "buttons":[
+#                     {
+#                         "type":"web_url",
+#                         "url":"https://www.google.com",
+#                         "title":"Google"
+#                     },
+#                     {
+#                         "type":"postback",
+#                         "title":"Call Postback",
+#                         "payload":"Payload for send_button_message()"
+#                     }
+#                     ]
+#                 }
+#             }
+#         }
+#     })
+
+#     log("sending button to {recipient}: ".format(recipient=recipient_id))
+
+#     call_send_api(message_data)
 
 def send_quickreply_message(recipient_id, message, quick_replies):
 
@@ -250,39 +250,39 @@ def send_quickreply_message(recipient_id, message, quick_replies):
     call_send_api(message_data)
 
 
-def send_share_message(recipient_id):
+# def send_share_message(recipient_id):
 
-    # Share button only works with Generic Template
-    message_data = json.dumps({
-        "recipient": {
-            "id": recipient_id
-        },
-        "message": {
-            "attachment": {
-                "type":"template",
-                "payload":{
-                    "template_type":"generic",
-                    "elements":[
-                    {
-                        "title":"Reddit link",
-                        "subtitle":"Something funny or interesting",
-                        "image_url":"https://pbs.twimg.com/profile_images/667516091330002944/wOaS8FKS.png",
-                        "buttons":[
-                        {
-                            "type":"element_share"
-                        }
-                        ]
-                    }    
-                    ]
-                }
+#     # Share button only works with Generic Template
+#     message_data = json.dumps({
+#         "recipient": {
+#             "id": recipient_id
+#         },
+#         "message": {
+#             "attachment": {
+#                 "type":"template",
+#                 "payload":{
+#                     "template_type":"generic",
+#                     "elements":[
+#                     {
+#                         "title":"Reddit link",
+#                         "subtitle":"Something funny or interesting",
+#                         "image_url":"https://pbs.twimg.com/profile_images/667516091330002944/wOaS8FKS.png",
+#                         "buttons":[
+#                         {
+#                             "type":"element_share"
+#                         }
+#                         ]
+#                     }    
+#                     ]
+#                 }
         
-            }
-        }
-    })
+#             }
+#         }
+#     })
 
-    log("sending share button to {recipient}: ".format(recipient=recipient_id))
+#     log("sending share button to {recipient}: ".format(recipient=recipient_id))
 
-    call_send_api(message_data)
+#     call_send_api(message_data)
 
 
 def received_postback(event):
@@ -323,7 +323,7 @@ def call_send_api(message_data):
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
-    print str(message)
+    print message
     sys.stdout.flush()
 
 
