@@ -26,7 +26,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
-    log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    # log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     if data["object"] == "page":   # make sure this is a page subscription
 
@@ -45,7 +45,6 @@ def webhook():
                     # received_authentication(messaging_event)
 
                 elif messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    log("USER TAPPED POST BACK BUTTON")
                     received_postback(messaging_event)
 
                 else:    # uknown messaging_event
@@ -59,6 +58,8 @@ def received_message(event):
     sender_id = event["sender"]["id"]        # the facebook ID of the person sending you the message
     recipient_id = event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
     
+    log("received message from {recipient}".format(recipient=recipient_id))
+
     # could receive text or attachment but not both
     if "text" in event["message"]:
         message_text = event["message"]["text"]
