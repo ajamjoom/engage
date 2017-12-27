@@ -48,7 +48,7 @@ def webhook():
                     received_postback(messaging_event)
 
                 else:    # uknown messaging_event
-                    log("Webhook received unknown messaging_event: " + messaging_event)
+                    log("Webhook received unknown messaging_event: " + str(messaging_event))
 
     return "ok", 200
 
@@ -323,7 +323,7 @@ def call_send_api(message_data):
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
-    print message
+    print str(message)
     sys.stdout.flush()
 
 
