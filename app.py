@@ -227,7 +227,7 @@ def send_button_message(recipient_id):
 
     call_send_api(message_data)
 
-def send_quickreply_message(recipient_id, quick_replies):
+def send_quickreply_message(recipient_id, message, quick_replies):
 
     # List of objects {content_type, title, pyaload}
     quick_reply_list = []
@@ -240,6 +240,7 @@ def send_quickreply_message(recipient_id, quick_replies):
                 "id": recipient_id
             },
             "message": {
+                "text": message,
                 "quick_replies": quick_reply_list
             }
         })
@@ -297,9 +298,10 @@ def received_postback(event):
 
     if payload == 'Get Started':
         # Get Started button was pressed
-        send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID].")
+        # send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID].")
         # Engage quickreply
-        send_quickreply_message(sender_id, ["Engage"])
+        txt = "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID]."
+        send_quickreply_message(sender_id, txt, ["Engage"])
     else:
         # Notify sender that postback was successful
         send_text_message(sender_id, "Postback called")
