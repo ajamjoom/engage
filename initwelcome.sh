@@ -7,7 +7,7 @@
 curl -X POST -H "Content-Type: application/json" -d '{
   "setting_type":"greeting",
   "greeting":{
-    "text":"Hi {{user_first_name}}, welcome to the Engage bot. Engage enables you to provide truthful and well thought out comments to your friends by giving you the ability to simply anonymize your comments. To ensure that our platfrom is properly used, we will use NLP mechanisms to block any hateful comments. Use it wisley!"
+    "text":"Hi {{user_first_name}}, welcome to the Engage bot. Engage enables you to provide truthful and well thought out comments to your friends by giving you the ability to simply anonymize your comments."
   }
 }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAdIkAG76KIBAPR8JCfVT0GyZBQQ41lYhBGLQtA9bqYBuC6wldmfZBLyCUWadZC15TaHuulZAtf7iZCcuc34y9aTrSZAn7PpvClKxKmvkGFrMqVDrkYjdSQBd4Ngj84LSlULaT8nM2FJBoYH8N4hlJ1sxgGzG2UJLapvMtNzKdZCgZDZD"
 

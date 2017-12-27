@@ -326,7 +326,7 @@ def received_postback(event):
 
     if payload == 'Get Started':
         # Get Started button was pressed
-        send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. A video explaining how this platform works will be sent to you shortly.")
+        send_text_message(sender_id, "Welcome to the Engage Bot! This platform enables you anonymously comments on Facebook posts. You simply just have to send us the unique post URL and then write your comment. [SEND VID].")
     else:
         # Notify sender that postback was successful
         send_text_message(sender_id, "Postback called")
